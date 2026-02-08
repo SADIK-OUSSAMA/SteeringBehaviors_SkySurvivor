@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski Game - Steering Behaviors</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #1e2840;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+
+    <!-- p5.js library -->
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+
+    <!-- Game classes (order matters: base class first) -->
+    <script src="vehicle.js"></script>
+    <script src="obstacle.js"></script>
+    <script src="heart.js"></script>
+    <script src="dashPickup.js"></script>
+    <script src="flyingEnemy.js"></script>
+    <script src="player.js"></script>
+    <script src="pursuer.js"></script>
+
+    <!-- Main game -->
+    <script src="sketch.js"></script>
+</head>
+
+<body>
+</body>
+
+</html>
