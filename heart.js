@@ -28,6 +28,11 @@ class Heart {
         if (d < this.r + player.r) {
             if (player.gainHeart()) {
                 this.collected = true;
+                // Play collect sound
+                if (typeof collectSound !== 'undefined' && collectSound && collectSound.isLoaded()) {
+                    collectSound.setVolume(0.6);
+                    collectSound.play();
+                }
                 return true;
             }
         }

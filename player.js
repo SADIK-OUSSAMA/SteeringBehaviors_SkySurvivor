@@ -146,6 +146,11 @@ class Player extends Vehicle {
         if (this.damageCooldown <= 0) {
             this.hearts--;
             this.damageCooldown = DAMAGE_COOLDOWN;
+            // Play heart reduce sound
+            if (typeof heartReduceSound !== 'undefined' && heartReduceSound && heartReduceSound.isLoaded()) {
+                heartReduceSound.setVolume(0.5);
+                heartReduceSound.play();
+            }
             if (this.hearts <= 0) {
                 this.hearts = 0;
                 this.isExploding = true;
