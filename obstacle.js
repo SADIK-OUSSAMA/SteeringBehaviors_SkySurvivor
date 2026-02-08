@@ -29,6 +29,10 @@ class Obstacle {
         // Start exploding when lifetime ends
         if (this.lifetime <= 0) {
             this.isExploding = true;
+            // Play explosion sound
+            if (typeof obstacleExplosionSound !== 'undefined' && obstacleExplosionSound && obstacleExplosionSound.isLoaded()) {
+                obstacleExplosionSound.play();
+            }
         }
     }
 
