@@ -16,7 +16,7 @@ SkySurvivor est un jeu vidéo de type **Action / Arcade / Survival** développé
 
 ### Objectif principal
 
-Ce projet a été conçu dans le cadre du module **"IA pour le jeu vidéo"** pour démontrer l'implémentation pratique des **Steering Behaviors** (comportements de direction) théorisés par Craig Reynolds. L'objectif technique n'est pas seulement de créer un jeu fonctionnel, mais de simuler des mouvements organiques et coordonnés pour les ennemis, dépassant les simples trajectoires linéaires.
+Ce projet a été conçu dans le cadre du module **"IA Réactifs"** pour démontrer l'implémentation pratique des **Steering Behaviors** (comportements de direction) théorisés par Craig Reynolds. L'objectif technique n'est pas seulement de créer un jeu fonctionnel, mais de simuler des mouvements organiques et coordonnés pour les ennemis, dépassant les simples trajectoires linéaires.
 
 ### Contexte de réalisation
 
