@@ -22,6 +22,7 @@ let obstacles = [];
 let hearts = [];
 let dashPickups = [];
 let flyingEnemies = [];
+let snakes = [];
 // Sprite images
 let playerImg;
 let enemyImg;
@@ -70,6 +71,7 @@ function startLevel(levelIndex) {
     hearts = [];
     dashPickups = [];
     flyingEnemies = [];
+    snakes = [];
 
     let config = LEVEL_CONFIG[levelIndex];
 
@@ -95,6 +97,11 @@ function startLevel(levelIndex) {
         p.maxSpeed = config.speed;
         pursuers.push(p);
     }
+
+    // Spawn one snake at level start
+    let sx = random(100, width - 100);
+    let sy = random(100, height - 100);
+    snakes.push(new SnakeWander(sx, sy, 8, 18, [80, 180, 80]));
 
     gameState = "playing";
 }
@@ -205,6 +212,13 @@ function updateGame() {
         }
     }
 
+    // ===== SNAKES =====
+    for (let i = 0; i < snakes.length; i++) {
+        snakes[i].move();
+        snakes[i].checkPlayerCollision(player);
+        snakes[i].show();
+    }
+
     // ===== OBSTACLES =====
     for (let i = obstacles.length - 1; i >= 0; i--) {
         obstacles[i].update();
@@ -260,7 +274,8 @@ function updateGame() {
 }
 
 function mousePressed() {
-    if (mouseButton === LEFT && gameState === "playing" && dropCooldown <= 0) {
+    // Max 5 obstacles limit
+    if (mouseButton === LEFT && gameState === "playing" && dropCooldown <= 0 && obstacles.length < 5) {
         obstacles.push(player.dropObstacle());
         dropCooldown = OBSTACLE_COOLDOWN;
     }
@@ -286,13 +301,13 @@ function mousePressed() {
 function keyPressed() {
     if (gameState !== "playing") return;
 
-    // E to dash
-    if (key === 'e' || key === 'E') {
+    // E or 0 to dash
+    if (key === 'e' || key === 'E' || key === '0') {
         player.dash();
     }
 
-    // SPACE to drop obstacle
-    if (key === ' ' && dropCooldown <= 0) {
+    // SPACE or 1 to drop obstacle (max 5)
+    if ((key === ' ' || key === '1') && dropCooldown <= 0 && obstacles.length < 5) {
         obstacles.push(player.dropObstacle());
         dropCooldown = OBSTACLE_COOLDOWN;
     }
@@ -384,8 +399,8 @@ function drawUI() {
     text("LEVEL " + (currentLevel + 1) + " / 3", 20, 20);
 
     textSize(14);
-    text("ZQSD/WASD: Move", 20, 50);
-    text("E: Dash | SPACE: Drop Obstacle", 20, 70);
+    text("ZQSD/WASD/Arrows: Move", 20, 50);
+    text("E/0: Dash | SPACE/1: Obstacle (max 5)", 20, 70);
     text("⚠️ Don't touch red borders!", 20, 90);
 
     textAlign(RIGHT, TOP);

@@ -58,23 +58,23 @@ class Player extends Vehicle {
             return; // Don't apply normal movement while dashing
         }
 
-        // ZQSD / WASD movement
+        // ZQSD / WASD / Arrow keys movement
         let moveDir = createVector(0, 0);
 
-        // Up: W or Z
-        if (keyIsDown(87) || keyIsDown(90)) { // W or Z
+        // Up: W or Z or UP_ARROW
+        if (keyIsDown(87) || keyIsDown(90) || keyIsDown(UP_ARROW)) {
             moveDir.y -= 1;
         }
-        // Down: S
-        if (keyIsDown(83)) { // S
+        // Down: S or DOWN_ARROW
+        if (keyIsDown(83) || keyIsDown(DOWN_ARROW)) {
             moveDir.y += 1;
         }
-        // Left: A or Q
-        if (keyIsDown(65) || keyIsDown(81)) { // A or Q
+        // Left: A or Q or LEFT_ARROW
+        if (keyIsDown(65) || keyIsDown(81) || keyIsDown(LEFT_ARROW)) {
             moveDir.x -= 1;
         }
-        // Right: D
-        if (keyIsDown(68)) { // D
+        // Right: D or RIGHT_ARROW
+        if (keyIsDown(68) || keyIsDown(RIGHT_ARROW)) {
             moveDir.x += 1;
         }
 
