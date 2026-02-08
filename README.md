@@ -4,7 +4,7 @@
 **Année Universitaire :** 2025-2026
 
 **Lien GitHub Pages (Jeu) :** [https://sadik-oussama.github.io/SteeringBehaviors_SkySurvivor/](https://sadik-oussama.github.io/SteeringBehaviors_SkySurvivor/)  
-**Lien YouTube (Démo) :** Coming Soon
+**Lien YouTube (Démo) :** https://www.youtube.com/watch?v=Vm5YTDkJp78
 
 ---
 
@@ -239,4 +239,4 @@ Le comportement de `pursue` combiné avec `separate` permet aux ennemis de chass
 
 ---
 
-**Projet universitaire - Master 2 Intelligence Artificielle**
+**Projet universitaire - Master 2 Intelligence Artificielle Appliquée - UNIVERSITE COTE D'AZURE**
